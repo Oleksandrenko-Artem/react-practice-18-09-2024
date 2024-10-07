@@ -6,3 +6,10 @@
     background-color: lightgreen;
     max-width: 250px;
 }
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.amount{
+    padding: 0 20px;
+}
