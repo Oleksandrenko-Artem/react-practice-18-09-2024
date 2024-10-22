@@ -1,11 +1,9 @@
-// import ProductsTable from "./components/ProductsTable/ProductsTable";
-import UserSection from "./components/UserSection/UserSection";
+import ShopPage from './pages/ShopPage';
 
 function App() {
 
   return <>
-    <UserSection />
-    {/* <ProductsTable/> */}
+    <ShopPage/>
   </>
 }
 

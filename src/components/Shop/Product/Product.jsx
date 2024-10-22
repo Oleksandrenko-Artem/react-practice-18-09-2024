@@ -1,4 +1,5 @@
-import './Product.css'
+import PropTypes from 'prop-types';
+import './Product.css';
 import { useState } from 'react';
 const Product = (props) => {
     const { product: { title, quantity, price } } = props;
@@ -14,4 +15,11 @@ const Product = (props) => {
     );
 }
 
+Product.propTypes = {
+    product: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        quantity: PropTypes.number
+    })
+}
 export default Product;
