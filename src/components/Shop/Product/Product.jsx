@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import './Product.css';
 import { useState } from 'react';
 const Product = (props) => {
-    const { product: { title, quantity, price } } = props;
-    const [productColor, setProductColor] = useState(false);
-    const productSelect = productColor ? 'red' : 'black';
-    const changeProductColor = () => {setProductColor(true)};
+    const { product: { id, title, quantity, price },
+        addNewProduct } = props;
+    const addToCart = () => addNewProduct(id)
     return (
-        <tr onClick={changeProductColor} className='product' style={{color: productSelect}}>
+        <tr onClick={addToCart}>
             <td className='product-properties'>{title}</td>
             <td className='product-properties'>{price} uah</td>
             <td className='product-properties'>{quantity} etc</td>
