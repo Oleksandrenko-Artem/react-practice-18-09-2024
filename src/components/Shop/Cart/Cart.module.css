@@ -1,0 +1,13 @@
+.cartHeader{
+    padding-left: 10px;
+}
+.totalPrice{
+    padding-left: 10px;
+}
+.cart{
+    padding-left: 10px;
+    color: rgb(80, 80, 80);
+}
+.totalColor{
+    color: blue;
+}

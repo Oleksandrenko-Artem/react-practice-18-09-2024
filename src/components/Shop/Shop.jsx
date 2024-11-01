@@ -17,11 +17,11 @@ const Shop = () => {
         })
         setProducts(productAfterAdd);
         const [newProduct] = products.filter((product) => product.id === id);
-        // if (cartProducts.includes(newProduct)) {
-        //     newProduct.quantity++;
-        // } else {
-        //     newProduct.quantity = 1;
-        // }
+        if (cartProducts.includes(newProduct)) {
+            newProduct.quantityInCart++;
+        } else {
+            newProduct.quantityInCart = 1;
+        }
         const newCartProducts = [...new Set([...cartProducts, newProduct])]
         setCartProducts(newCartProducts);
     };
