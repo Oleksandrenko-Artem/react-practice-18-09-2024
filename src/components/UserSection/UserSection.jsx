@@ -1,6 +1,6 @@
 import UserProfile from '../UserProfile/UserProfile';
 import data from './data';
-import styles from './UsersSection.module.css';
+import styles from './UsersSection.module.scss';
 
 const UserSection = () => {
     const showUser = (user) => (<UserProfile key={user.id} user={user}/>)

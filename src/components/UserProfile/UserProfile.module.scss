@@ -1,0 +1,37 @@
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/mixins' as *;
+
+$indent: 10px;
+
+.user-profile{
+    padding: $indent;
+    padding-left: $indent * 3;
+    margin-bottom: $indent;
+    margin-left: $indent;
+    background-color: $secondaryBgColor;
+    max-width: 215px;
+    h2>span {
+        color: $accentColor;
+    }
+
+    .flex{
+        @include flex(row, nowrap, center, center);
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // font-size: 1.5em;
+        span {
+            color: $infoColor;
+        }
+    }
+
+    .amount{
+        padding: 0 $indent * 2;
+    }
+}
+.select{
+    border: 4px solid $accentColor;
+}
+.noselect{
+    border: 4px solid $infoColor;
+}

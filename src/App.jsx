@@ -1,9 +1,10 @@
-import QuizPage from './pages/QuizPage';
+
+import UserSection from './components/UserSection/UserSection';
 
 function App() {
 
   return <>
-    <QuizPage/>
+    <UserSection/>
   </>
 }
 
