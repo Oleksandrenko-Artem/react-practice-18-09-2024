@@ -1,6 +1,14 @@
 import {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {parseISO, differenceInSeconds, formatDistanceToNow} from 'date-fns';
+import {
+    parseISO,
+    differenceInMilliseconds,
+    differenceInSeconds,
+    differenceInMinutes,
+    differenceInHours,
+    differenceInDays,
+    sub
+} from 'date-fns';
 
 
 const TimerBack = (props) => {
@@ -9,15 +17,19 @@ const TimerBack = (props) => {
     const [timeRemainder, setTimeRemainder] = useState('');
     useEffect(() => {
         const idInterval = setInterval(() => { 
-            
-            // 1 варіант - виводили кількість секунд що лишилися до події
-            // const now = new Date();
-            // const secRemainder = differenceInSeconds(date, now);
-            // setTimeRemainder(secRemainder);
-
-            // 2 варіант
-            // setTimeRemainder(formatDistanceToNow(date));
-        }, 1000);
+            // 3 варіант
+            const now = new Date();
+            const days = differenceInDays(date, now);
+            const hours = differenceInHours(sub(date, { days }), now);
+            const minutes = differenceInMinutes(sub(date, { days, hours }), now);
+            const seconds = differenceInSeconds(sub(date, { days, hours, minutes }), now);
+            const milliseconds = differenceInMilliseconds(sub(date, { days, hours, minutes, seconds }), now);
+            if (days <=0 && hours <= 0 && minutes <= 0 && seconds <= 0 && milliseconds <= 0) {
+                setTimeRemainder('Time out!');
+            } else {
+                setTimeRemainder(`${days} days, ${hours} hours ${minutes} minutes ${seconds} seconds ${milliseconds} milliseconds`);
+            }
+        }, 100);
         return () => {
             clearInterval(idInterval);
         };
@@ -34,7 +46,7 @@ const TimerBack = (props) => {
 
 TimerBack.propTypes = {
     title: PropTypes.string,
-    data: PropTypes.string
+    dateStr: PropTypes.string
 };
 
 
