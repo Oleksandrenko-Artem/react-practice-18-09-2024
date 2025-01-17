@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiThumbUp, mdiThumbDown } from '@mdi/js';
 import cx from 'classnames';
 import styles from './UserProfile.module.scss'
-import { ThemeContext } from '../../contexts';
 import CONSTANTS from './../../constants';
+import { withTheme } from './../HOCs';
 
 const UserProfile = (props) => {
-    const { user: { name = "Anonim", age = "0", email = "anonim@gmail.com" } } = props;
+    const { user: { name = "Anonim", age = "0", email = "anonim@gmail.com" }, theme } = props;
     const [isSelect, setIsSelect] = useState(false);
     const [amount, setAmount] = useState(10);
     const [isDelete, setIsDelete] = useState(false);
-    const {theme} = useContext(ThemeContext);
 
     const changeIsSelect = () => { setIsSelect(!isSelect) };
     const addLike = (event) => {
@@ -57,6 +56,7 @@ UserProfile.propTypes = {
         name: PropTypes.string.isRequired,
         age: PropTypes.number.isRequired,
         email: PropTypes.string.isRequired
-    })
+    }),
+    theme: PropTypes.string
 }
-export default UserProfile;
+export default withTheme(UserProfile);

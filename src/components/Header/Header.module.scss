@@ -1,0 +1,16 @@
+@use '/src/common/styles/template' as *;
+.light{
+    @extend %light;
+}
+.dark{
+    @extend %dark;
+}
+.header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+.themeBtn{
+    border: none;
+}
