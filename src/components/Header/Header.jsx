@@ -5,6 +5,7 @@ import CONSTANTS from './../../constants';
 import { withTheme, withUserAccount } from './../HOCs';
 import { PropTypes } from 'prop-types';
 import styles from './Header.module.scss';
+import Menu from './../Menu/Menu';
 
 const Header = (props) => {
     const { theme, setTheme, user:{firstName, lastName} } = props;
@@ -15,6 +16,7 @@ const Header = (props) => {
     });
     return (
         <header className={headerClasses}>
+            <Menu/>
             <p>Hi! {firstName} {lastName}</p>
             <span onClick={changeTheme} className={styles.themeBtn}>{theme === CONSTANTS.THEME.LIGHT ? <Icon path={mdiMoonWaningCrescent} size={1}/> : <Icon path={mdiWhiteBalanceSunny} size={1}/>}</span>
         </header>

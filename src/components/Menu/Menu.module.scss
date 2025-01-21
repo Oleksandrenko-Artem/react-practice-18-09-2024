@@ -1,0 +1,28 @@
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/template' as *;
+
+.menu{
+    margin-right: auto;
+    ul{
+        list-style: none;
+        padding-left: 0;
+        li{
+            display: inline-block;
+            a {
+                color: inherit;
+                padding: 0px 20px 5px;
+                margin: 0px 10px;
+                border: 2px solid;
+                border-radius: 10px;
+                text-decoration: none;
+            };
+        };
+    };
+};
+.light {
+    @extend %light;
+}
+
+.dark {
+    @extend %dark;
+}
