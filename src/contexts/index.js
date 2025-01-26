@@ -8,3 +8,5 @@ const userAccount = {
 }
 
 export const UserAccountContext = createContext(userAccount);
+
+export const UserContext = createContext();

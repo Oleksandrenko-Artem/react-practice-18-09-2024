@@ -1,4 +1,5 @@
 @use '/src/common/styles/template' as *;
+
 .light{
     @extend %light;
 }
@@ -14,4 +15,21 @@
 .themeBtn{
     border: none;
     padding-left: 20px;
+}
+.register {
+    color: inherit;
+    padding: 0px 10px 0px;
+    margin: 0px 10px;
+    border: 2px solid;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.logOut{
+    color: inherit;
+    background-color: inherit;
+    padding: 5px 10px 5px;
+    margin: 0px 10px;
+    border: 2px solid;
+    border-radius: 10px;
+    text-decoration: none;
 }
