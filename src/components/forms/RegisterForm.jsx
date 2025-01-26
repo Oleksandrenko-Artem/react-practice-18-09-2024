@@ -1,12 +1,27 @@
 import { useNavigate } from 'react-router-dom';
-import {Formik, Form, Field, ErrorMessage, validateYupSchema} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
+import { PropTypes } from 'prop-types';
+import { Icon } from '@mdi/react';
+import { mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
 import { registerSchema } from '../../helpers/validation';
 import { withUserAuth } from './../HOCs';
-import styles from './RegisterForm.module.scss';
+import styles from './Form.module.scss';
 
 const RegisterForm = (props) => {
     const { setUser } = props;
+    const [type, setType] = useState('password');
+    const [showPassword, setShowPassword] = useState(mdiEyeOutline);
     const navigate = useNavigate();
+    const changeType = () => {
+        if (type === 'password') {
+            setType('text');
+            setShowPassword(mdiEyeOffOutline);
+        } else {
+            setType('password');
+            setShowPassword(mdiEyeOutline);
+        }
+    }
     return (
         <Formik
             initialValues={{
@@ -37,32 +52,27 @@ const RegisterForm = (props) => {
                     return (
                         <Form className={styles.form}>
                             <label>
-                                <span>first name:</span>
                                 <Field type='text' name='firstName' placeholder='first name' />
                                 <ErrorMessage name='firstName' component='div' className={styles.error} />
                             </label>
                             <label>
-                                <span>last name:</span>
                                 <Field type='text' name='lastName' placeholder='last name' />
                                 <ErrorMessage name='lastName' component='div' className={styles.error} />
                             </label>
                             <label>
-                                <span>email:</span>
                                 <Field type='email' name='email' placeholder='email' />
                                 <ErrorMessage name='email' component='div' className={styles.error} />
                             </label>
+                            {<label>
+                                <Field type={type} name='password' placeholder='password' />
+                                <ErrorMessage name='password' component='div' className={styles.errorPassword}/>
+                                <Icon path={showPassword} size={1.2} onClick={changeType} className={styles.showPassword} />
+                            </label>}
                             <label>
-                                <span>password:</span>
-                                <Field type='password' name='password' placeholder='password' />
-                                <ErrorMessage name='password' component='div' className={styles.error} />
-                            </label>
-                            <label>
-                                <span>confirm password:</span>
                                 <Field type='password' name='confirmPassword' placeholder='confirm password' />
                                 <ErrorMessage name='confirmPassword' component='div' className={styles.error} />
                             </label>
                             <label>
-                                <span>year</span>
                                 <Field type='number' name='year' placeholder='year' />
                                 <ErrorMessage name='year' component='div' className={styles.error} />
                             </label>
@@ -75,6 +85,9 @@ const RegisterForm = (props) => {
     );
 }
 
-const RegisterFormWithHOC = withUserAuth(RegisterForm);
+RegisterForm.propTypes = {
+    setUser: PropTypes.func,
+}
 
+const RegisterFormWithHOC = withUserAuth(RegisterForm);
 export default RegisterFormWithHOC;

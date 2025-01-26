@@ -1,0 +1,59 @@
+@use '/src/common/styles/colors' as *;
+
+*{
+    box-sizing: border-box;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    min-width: 250px;
+    width: 90%;
+    margin: auto;
+    button{
+        padding: 0.5em;
+        color: $secondaryTextColor;
+        background-color: $accentColor;
+        text-transform: uppercase;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        position: relative;
+        input{
+            min-width: 100%;
+            padding: 0.5em;
+        }
+        .error {
+            color: white;
+            background-color: red;
+            padding: 0.25em;
+            right: 0;
+            position: absolute;
+        }
+        .errorPassword{
+            color: $secondaryTextColor;
+            background-color: $errorBgColor;
+            padding: 0.25em;
+            padding-right: 35px;
+            right: 0;
+            position: absolute;
+        }
+        .showPassword{
+            display: flex;
+            position: absolute;
+            right: 0;
+            padding: 5px 5px 0px 0px;
+        }
+    }
+}
+
+.button {
+    color: inherit;
+    background-color: inherit;
+    padding: 5px 20px 5px;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+}

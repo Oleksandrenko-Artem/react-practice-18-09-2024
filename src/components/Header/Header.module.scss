@@ -11,25 +11,21 @@
     justify-content: flex-end;
     align-items: center;
     padding: 5px;
+    a{
+        color: inherit;
+        background-color: inherit;
+        text-decoration: none;
+        padding: 0px 20px 5px;
+        margin: 0px 10px;
+        border-radius: 10px;
+        text-transform: uppercase
+    }
 }
 .themeBtn{
     border: none;
     padding-left: 20px;
 }
-.register {
-    color: inherit;
-    padding: 0px 10px 0px;
-    margin: 0px 10px;
-    border: 2px solid;
-    border-radius: 10px;
-    text-decoration: none;
-}
-.logOut{
-    color: inherit;
-    background-color: inherit;
-    padding: 5px 10px 5px;
-    margin: 0px 10px;
-    border: 2px solid;
-    border-radius: 10px;
-    text-decoration: none;
+.welcome{
+    display: flex;
+    margin: 0;
 }

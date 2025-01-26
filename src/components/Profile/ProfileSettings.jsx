@@ -1,10 +1,10 @@
-
+import styles from './Profile.module.scss';
 
 const ProfileSettings = () => {
     return (
-        <div>
-            ProfileSettings
-        </div>
+        <section>
+            <h2 className={styles.caption}>Profile settings</h2>
+        </section>
     );
 }
 

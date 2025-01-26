@@ -9,7 +9,7 @@ export const registerSchema = Yup.object({
     lastName: nameSchema,
     email: emailSchema,
     password: passwordSchema,
-    confirmPassword: Yup.string().oneOf([Yup.ref('password')]).required('required'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'passwords must match').required('required'),
     year: Yup.number().min(1900).max(new Date().getFullYear(), 'year cannot be in the future').required('required'),
 })
 
